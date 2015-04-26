@@ -89,7 +89,7 @@ class MembersController < ApplicationController
 	def check
 		m = Member.where(:email => params[:email]).first
 		if m
-			Registrations.create(:member_id => m.id, :day => DateTime.now.end_of_week)
+			Registration.create(:member_id => m.id, :day => DateTime.now.end_of_week)
       AdminMailer.thanks_volunteer(m).deliver
 			redirect_to thank_you_path
 		else
