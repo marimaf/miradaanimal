@@ -44,6 +44,7 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
+        AdminMailer.thanks_volunteer(@member).deliver
         format.html { redirect_to thank_you_path }
         format.json { render json: @member, status: :created, location: @member }
       else
@@ -89,6 +90,7 @@ class MembersController < ApplicationController
 		m = Member.where(:email => params[:email]).first
 		if m
 			Registrations.create(:member_id => m.id, :day => DateTime.now.end_of_week)
+      AdminMailer.thanks_volunteer(m).deliver
 			redirect_to thank_you_path
 		else
 			@member = Member.new

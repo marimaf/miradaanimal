@@ -4,6 +4,8 @@ es:
     comments:
       author_type: "Tipo de autor"
       resource_type: "Recurso"
+      unauthenticated: "Sin autenticar"
+      signed_in: "Sesión iniciada"
   activerecord:
     models:
       dog: "Perros"
@@ -11,10 +13,14 @@ es:
       registration: "Registro"
     attributes:
         dog:
+          name: "Nombre"
           gender: "Género"
           size: "Tamaño"
           sterilized: "Esterilizado"
-          dateofbirth: "Fecha de Nacimiento"
+          date_of_birth: "Fecha de Nacimiento"
+          story: "Historia"
+          created_at: "Creado en"
+          updated_at: "Actualizado"
         member:
           name: "Nombre"
           occupation: "Ocupación/Profesión/Intereses"

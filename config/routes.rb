@@ -11,6 +11,7 @@ Miradaanimal::Application.routes.draw do
   match 'operativo' => 'members#volunteer', :as => :volunteer
   match 'check' => 'members#check', :as => :check
   match 'thank_you' => 'members#thank_you', :as => :thank_you
+  
   #match 'voluntarios' => 'registrations#volunteers', :as => :volunteers
 
   # The priority is based upon order of creation:
