@@ -20,6 +20,8 @@ Miradaanimal::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+config.action_mailer.default_url_options = { host: 'miradaanimal.herokuapp.com' }
+
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
@@ -64,4 +66,26 @@ Miradaanimal::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  #devise requires this
+config.action_mailer.default_url_options = { :host => 'miradaanimal.herokuapp.com' }
+
+
+config.action_mailer.smtp_settings = {
+    :port =>           '587',
+    :address =>        'smtp.mandrillapp.com',
+    :user_name =>      ENV["MANDRILL_USER"],
+    :password =>       ENV["MANDRILL_APIKEY"],
+    :domain =>         'miradaanimal.herokuapp.com',
+    :enable_starttls_auto => true, # detects and uses STARTTLS
+    :authentication => 'login'
+}
+
+ config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV["S3_BUCKET"],
+    :access_key_id => ENV["S3_KEY_ID"],
+    :secret_access_key => ENV["S3_SECRET_ACCESS_KEY"]
+  } 
+}
 end

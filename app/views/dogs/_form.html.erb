@@ -1,0 +1,53 @@
+<%= form_for(@dog, :html => { :multipart => true }) do |f| %>
+  <% if @dog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dog.errors.count, "error") %> prohibited this dog from being saved:</h2>
+
+      <ul>
+      <% @dog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <%= f.file_field :photo1 %>
+  <%= f.file_field :photo2 %>
+  <%= f.file_field :photo3 %>
+  <%= f.file_field :photo4 %>
+  <div class="field">
+    <%= f.label :arrival_date %><br />
+    <%= f.datetime_select :arrival_date %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.select :gender, [["Hembra", 'Hembra'],["Macho", 'Macho']], {}, :class => "form-control input-normal" %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br />
+    <%= f.select :size, [["Pequeño", 'Pequeño'],["Mediano", 'Mediano'],["Grande", 'Grande']], {}, :class => "form-control input-normal" %>
+  </div>
+  <div class="field">
+    <%= f.label :date_of_birth %><br />
+    <%= f.datetime_select :date_of_birth %>
+  </div>
+  <div class="field">
+    <%= f.label :sterilized %><br />
+    <%= f.check_box :sterilized %> Esterilizado
+  </div>
+  <div class="field">
+    <%= f.label :story %><br />
+    <%= f.text_area :story, :rows => 8 %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br />
+    <%= f.text_area :comments, :rows => 8 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

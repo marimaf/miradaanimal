@@ -20,8 +20,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
-
+gem "paperclip", "~> 4.2"
+gem 'aws-sdk', '< 2.0'#,  "~> 1.41.0"
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
@@ -31,10 +33,15 @@ gem 'jquery-rails'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'
+
+#gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
+gem 'rails-i18n', '~> 3.0.0' # For 3.x
+#gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master' # For 4.x
+#gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'rails-3-x' # For 3.x

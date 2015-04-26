@@ -1,0 +1,37 @@
+<style>
+ body {
+    padding-top: 120px;
+    padding-bottom: 40px;
+    background-color: #eee;
+  
+  }
+
+  .fullscreen_bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-image: url('assets/background3.JPG');
+    background-repeat:repeat;
+  }
+
+</style>
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+<body>
+	<div class="col-md-offset-3 col-md-6 text-center wells">
+		<h1>¡Gracias!</h1>
+		<h2>¡Nos vemos!</h2>
+		<br/>
+	</div>
+
+<div class="text-center">
+	
+	<% if @dog.photo1.exists? %>
+<%= image_tag @dog.photo1.url(:original) %>
+<% end %>
+</div>
+
+</body>

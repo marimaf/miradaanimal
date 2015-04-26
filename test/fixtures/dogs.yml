@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  arrival_date: 2015-04-08 23:34:05
+  gender: MyString
+  size: MyString
+  dateOfBirth: 2015-04-08 23:34:05
+  sterilized: 
+  story: MyText
+  comments: MyText
+
+two:
+  name: MyString
+  arrival_date: 2015-04-08 23:34:05
+  gender: MyString
+  size: MyString
+  dateOfBirth: 2015-04-08 23:34:05
+  sterilized: 
+  story: MyText
+  comments: MyText

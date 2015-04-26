@@ -1,0 +1,30 @@
+<style>
+ body {
+    padding-top: 120px;
+    padding-bottom: 40px;
+    background-color: #eee;
+  
+  }
+
+  .fullscreen_bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-image: url('assets/background2.JPG');
+    background-repeat:repeat;
+  }
+
+</style>
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+<body >
+	<div class="col-md-6 col-md-offset-3 wells">
+		<h1 class="text-center">Nuevo Voluntario</h1>
+
+		<%= render 'volunteer' %>
+
+	</div>
+</body>

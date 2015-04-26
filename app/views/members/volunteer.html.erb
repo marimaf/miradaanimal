@@ -1,0 +1,43 @@
+<style>
+ body {
+    padding-top: 120px;
+    padding-bottom: 40px;
+    background-color: #eee;
+  
+  }
+
+  .fullscreen_bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-image: url('assets/background.JPG');
+    background-repeat:repeat;
+  }
+
+</style>
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+
+<div class="col-md-6 col-md-offset-3 text-center wells">
+	<!--div class="text-center">
+	<img src="https://scontent-mia.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/11042979_1558284331086707_7916111296664081739_n.jpg?oh=ac81325b68f9b3ca2e31829c4386e226&oe=559F442E" width="450"/>
+</div-->
+
+<h1>Inscríbete para el Operativo</h1>
+
+<%= form_tag check_path, :method => :get  do%>
+
+  <div class="field col-md-8 col-md-offset-2 form-group required">
+    <%= label_tag "(si ya tenemos tus datos no necesitarás ingresar nada más)" %><br />
+    <%= text_field_tag :email, "", :placeholder => "Ingresa tu e-mail", :type => "email", :class=> "form-control required" %><br/>
+  </div>
+
+ <div class="actions">
+    <%= submit_tag 'Quiero ir al operativo este domingo ' + DateTime.now.end_of_week.strftime("%d / %m / %Y"), :class => "btn btn-primary" %>
+  </div>
+  <br/>
+<% end %>
+</div>

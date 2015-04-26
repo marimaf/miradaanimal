@@ -1,0 +1,6 @@
+<% if @volunteers.each do |registration| %>
+	<%= registration.member.name %> | <%= registration.member.email %> <br/>
+<% end.empty? %>
+	<i>No hay voluntarios inscritos</i>
+<% end %>
+

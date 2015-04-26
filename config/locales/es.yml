@@ -1,0 +1,27 @@
+es: 
+  new_dog: 'Nuevo Perro'
+  active_admin:
+    comments:
+      author_type: "Tipo de autor"
+      resource_type: "Recurso"
+  activerecord:
+    models:
+      dog: "Perros"
+      member: "Miembros"
+      registration: "Registro"
+    attributes:
+        dog:
+          gender: "Género"
+          size: "Tamaño"
+          sterilized: "Esterilizado"
+          dateofbirth: "Fecha de Nacimiento"
+        member:
+          name: "Nombre"
+          occupation: "Ocupación/Profesión/Intereses"
+          phone: "Teléfono"
+          email: "Correo electrónico"
+          frequent_donor: "Donante frecuente"
+          car: "Auto"
+          created_at: "Creado en"
+          updated_at: "Actualizado"
+          volunteer: "Voluntario"
