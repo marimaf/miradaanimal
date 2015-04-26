@@ -45,3 +45,6 @@ gem 'unicorn'
 gem 'rails-i18n', '~> 3.0.0' # For 3.x
 #gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master' # For 4.x
 #gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'rails-3-x' # For 3.x
+
+gem 'active_skin'
+gem 'groupdate'

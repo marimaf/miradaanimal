@@ -1,14 +1,10 @@
+#encoding: utf-8
 ActiveAdmin.register_page "Dashboard" do
 
   menu priority: 1, label: proc{ I18n.t("active_admin.dashboard") }
 
   content title: proc{ I18n.t("active_admin.dashboard") } do
-    div class: "blank_slate_container", id: "dashboard_default_message" do
-      span class: "blank_slate" do
-        span I18n.t("active_admin.dashboard_welcome.welcome")
-        small I18n.t("active_admin.dashboard_welcome.call_to_action")
-      end
-    end
+    
 
     # Here is an example of a simple dashboard with columns and panels.
     #
@@ -33,6 +29,17 @@ ActiveAdmin.register_page "Dashboard" do
             #button_to 'Enviar mail de recordatorio', { controller: "registrations", action: "create" }
          end
        end
-     end
+
+       column do 
+        panel "Donaciones últimos 30 días" do
+            
+          h1 do
+            "Total: " + number_to_currency(Donation.where(:created_at => 30.days.ago.beginning_of_day..Time.now).sum(:amount), precision: 0, locale: :en).to_s
+            end
+            render partial: 'donations'
+        end
+       end
+
+     end #columns
   end # content
 end

@@ -1,6 +1,7 @@
 es: 
   new_dog: 'Nuevo Perro'
   active_admin:
+
     comments:
       author_type: "Tipo de autor"
       resource_type: "Recurso"
@@ -10,6 +11,7 @@ es:
     models:
       dog: "Perros"
       member: "Miembros"
+      donation: "Donaciones"
       registration: "Registro"
     attributes:
         dog:
@@ -31,3 +33,9 @@ es:
           created_at: "Creado en"
           updated_at: "Actualizado"
           volunteer: "Voluntario"
+        donation:
+          amount: "Monto"
+          member: "Miembro"
+          member_id: "Miembro"
+          created_at: "Creado en"
+          updated_at: "Actualizado"

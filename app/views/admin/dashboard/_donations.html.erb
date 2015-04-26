@@ -1,0 +1,22 @@
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    new Highcharts.Chart({
+     chart: { renderTo: 'orders_chart' },
+    title: { text: 'Donaciones' },
+    xAxis: { type: 'datetime' },
+    yAxis: {
+      title: { text: 'Monto'}
+    },
+    series: [{
+    	
+    	pointInterval: <%= 1.day * 1000 %>,
+      pointStart: <%= 30.days.ago.at_midnight.to_i * 1000 %>,
+      data: <%= Donation.group_by_day(:created_at,range: 30.days.ago..Time.now).sum(:amount).values %>
+    }]
+  });
+  });
+</script>
+
+<div id="orders_chart" style="width: 560px; height: 300px;"></div>

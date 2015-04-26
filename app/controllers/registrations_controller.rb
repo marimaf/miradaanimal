@@ -83,7 +83,8 @@ class RegistrationsController < ApplicationController
   end
 
   def volunteers
-  	@volunteers = Registrations.where(:day => DateTime.now.end_of_week)
+  	@volunteers = Registration.where(:day => DateTime.now.end_of_week)
   end
+
 
 end
