@@ -3,7 +3,7 @@ class ReminderMailer < MandrillMailer::MessageMailer
   require 'mandrill'
   default from: 'mari.maf@gmail.com'
 
-  def remind_volunteer()
+  def remind_volunteer
     # in this example `invitation.invitees` is an Array
     volunteers_arr = Member.where(:volunteer => true)
     volunteers = volunteers_arr.map { |volunteer| { email: volunteer.email, name: volunteer.name } }
@@ -20,4 +20,6 @@ class ReminderMailer < MandrillMailer::MessageMailer
       important: true,
       inline_css: true
   end
+
+  puts "reminders sent"
 end
