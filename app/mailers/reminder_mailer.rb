@@ -1022,7 +1022,7 @@ a:hover{color:#30495c !important}.wrapper .logo div{color:#41637e}.wrapper .logo
       recipient_vars: Member.where(:volunteer => true).map do |volunteer| # invitation.invitees is an Array
         { volunteer.email =>
           {
-            'VOLUNTEER_NAME' => volunteer.name
+            'VOLUNTEER_NAME' => volunteer.name,
             'VOLUNTEER_URL' => volunteer_url(email: volunteer.email)
           }
         }
