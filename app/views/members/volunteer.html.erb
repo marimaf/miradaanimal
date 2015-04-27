@@ -32,7 +32,7 @@
 
   <div class="field col-md-8 col-md-offset-2 form-group required">
     <%= label_tag "(si ya tenemos tus datos no necesitarás ingresar nada más)" %><br />
-    <%= text_field_tag :email, "", :placeholder => "Ingresa tu e-mail", :type => "email", :class=> "form-control required" %><br/>
+    <%= text_field_tag :email, "", :placeholder => "Ingresa tu e-mail", :value => params[:email], :type => "email", :class=> "form-control required" %><br/>
   </div>
 
  <div class="actions">

@@ -44,6 +44,7 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
+        Registration.create(:member_id => @member.id, :day => DateTime.now.end_of_week)
         AdminMailer.thanks_volunteer(@member).deliver
         format.html { redirect_to thank_you_path }
         format.json { render json: @member, status: :created, location: @member }
