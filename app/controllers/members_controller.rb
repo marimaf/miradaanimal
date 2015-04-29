@@ -94,7 +94,7 @@ class MembersController < ApplicationController
 		m = Member.where(:email => params[:email]).first
 		if m
       registration = Registration.where(:member_id => m.id, :day => DateTime.now.end_of_week.at_midnight)
-      if registration.nil?
+      if registration.count == 0
   			Registration.create(:member_id => m.id, :day => DateTime.now.end_of_week.at_midnight)
       end
       AdminMailer.thanks_volunteer(m).deliver

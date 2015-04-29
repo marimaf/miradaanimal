@@ -33,7 +33,7 @@ ActiveAdmin.register_page "Dashboard" do
                   "Auto"
                 end
               end
-                Registration.where(:day => DateTime.now.end_of_week).map do |volunteer|
+                Registration.where(:day => DateTime.now.end_of_week.at_midnight).map do |volunteer|
                   tr do
                     td do
                       volunteer.member.name
