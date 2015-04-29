@@ -1,15 +1,23 @@
 #encoding: utf-8
 ActiveAdmin.register Dog do
 
+scope :por_adoptar
+scope :adoptados
+
+
 index do
     column :name
     column :sterilized
+    column :adopted
     column :gender
     column :size
     column :date_of_birth
     column :arrival_date
     column :photo1 do |dog|
-    	image_tag dog.photo1.url(:thumb)
+
+        if dog.photo1.exists?
+    	   image_tag dog.photo1.url(:thumb)
+        end
     end
     actions
   end
@@ -19,6 +27,7 @@ form :html => { :enctype => "multipart/form-data" } do |f|
    f.inputs "Details" do
     f.input :name
     f.input :sterilized
+    f.input :adopted
     f.input :gender, collection: ["Macho", "Hembra"]
     f.input :size, collection: ["Pequeño", "Mediano", "Grande"]
     f.input :date_of_birth, :as => :datepicker

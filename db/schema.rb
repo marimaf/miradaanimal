@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150426233103) do
+ActiveRecord::Schema.define(:version => 20150429001451) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20150426233103) do
     t.string   "photo4_content_type"
     t.integer  "photo4_file_size"
     t.datetime "photo4_updated_at"
+    t.boolean  "adopted"
   end
 
   create_table "donations", :force => true do |t|

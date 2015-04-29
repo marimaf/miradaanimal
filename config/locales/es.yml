@@ -19,6 +19,7 @@ es:
           gender: "Género"
           size: "Tamaño"
           sterilized: "Esterilizado"
+          adopted: "Adoptado"
           date_of_birth: "Fecha de Nacimiento"
           arrival_date: "Fecha llegada al refugio"
           story: "Historia"
