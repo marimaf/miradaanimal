@@ -44,7 +44,10 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
-        Registration.create(:member_id => @member.id, :day => DateTime.now.end_of_week)
+        registration = Registration.where(:member_id => @member.id, :day => DateTime.now.end_of_week.at_midnight)
+        if registration.nil?
+          Registration.create(:member_id => @member.id, :day => DateTime.now.end_of_week.at_midnight)
+        end
         AdminMailer.thanks_volunteer(@member).deliver
         format.html { redirect_to thank_you_path }
         format.json { render json: @member, status: :created, location: @member }
@@ -90,7 +93,10 @@ class MembersController < ApplicationController
 	def check
 		m = Member.where(:email => params[:email]).first
 		if m
-			Registration.create(:member_id => m.id, :day => DateTime.now.end_of_week)
+      registration = Registration.where(:member_id => m.id, :day => DateTime.now.end_of_week.at_midnight)
+      if registration.nil?
+  			Registration.create(:member_id => m.id, :day => DateTime.now.end_of_week.at_midnight)
+      end
       AdminMailer.thanks_volunteer(m).deliver
 			redirect_to thank_you_path
 		else
