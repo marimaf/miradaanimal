@@ -21,9 +21,30 @@ ActiveAdmin.register_page "Dashboard" do
 
        column do
          panel "Miembros inscritos para este domingo" do
-            ul do
+            table do
+              tr do 
+                th do
+                  "Nombre"
+                end
+                th do
+                  "Email"
+                end
+                th do 
+                  "Auto"
+                end
+              end
                 Registration.where(:day => DateTime.now.end_of_week).map do |volunteer|
-                    li  volunteer.member.name + "  |  " + volunteer.member.email + (volunteer.member.car ? " **TIENE AUTO** " : "")
+                  tr do
+                    td do
+                      volunteer.member.name
+                    end
+                    td do 
+                      volunteer.member.email
+                    end
+                    td do
+                     volunteer.member.car ? "Si" : "No"
+                    end
+                  end
                 end
             end
             #button_to 'Enviar mail de recordatorio', { controller: "registrations", action: "create" }
