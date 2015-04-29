@@ -45,7 +45,7 @@ class MembersController < ApplicationController
     respond_to do |format|
       if @member.save
         registration = Registration.where(:member_id => @member.id, :day => DateTime.now.end_of_week.at_midnight)
-        if registration.nil?
+        if registration.count == 0
           Registration.create(:member_id => @member.id, :day => DateTime.now.end_of_week.at_midnight)
         end
         AdminMailer.thanks_volunteer(@member).deliver
