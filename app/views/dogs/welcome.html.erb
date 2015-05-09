@@ -1,0 +1,6 @@
+
+<% @dogs.each do |dog| %>
+	<% if dog.photo1.exists? %>
+		<%= image_tag dog.photo1.url(:medium) %>
+	<% end %>
+<% end %>
