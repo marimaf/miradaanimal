@@ -20,6 +20,7 @@ es:
           event_number: "Evento"
           number: "Número"
           receipt: "Comprobante"
+          verified: "Verificado"
         dog:
           name: "Nombre"
           gender: "Género"
