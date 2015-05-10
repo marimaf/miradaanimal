@@ -57,7 +57,10 @@ $(function () {
                 <div class="col-xs-2 text-center">
                 
                
-                  <%= image_tag dog.photo1.url(:thumb), :class=>"img-responsive img-radio", :alt => dog.name %>
+                  
+
+                  <%= image_tag dog.photo1.url(:thumb), :class=>"img-responsive img-radio", :alt => dog.name, :style=> "height:100px;width:100px;"%>
+                
                   <% if !@raffles[(index+1).to_i] %>
                     <button type="button" class="btn btn-primary btn-radio "><%= index + 1%>. <%= dog.name %></button>
                     <input type="checkbox" id="raffle[number]" name="raffle[number][<%= index +1%>]" class="hidden" value="<%= index +1%>">
