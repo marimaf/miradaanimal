@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150429001451) do
+ActiveRecord::Schema.define(:version => 20150509223622) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -95,6 +95,15 @@ ActiveRecord::Schema.define(:version => 20150429001451) do
     t.boolean  "frequent_donor"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "raffles", :force => true do |t|
+    t.string   "email"
+    t.integer  "number"
+    t.integer  "receipt"
+    t.integer  "event_number"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "registration", :force => true do |t|

@@ -18,6 +18,21 @@
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 
+<script type="text/javascript">
+
+  
+  // this allows jquery to be called along with scriptaculous and YUI without any conflicts
+  // the only difference is all jquery functions should be called with $jQ instead of $
+  // e.g. $jQ('#div_id').stuff instead of $('#div_id').stuff
+  	//$jQ = jQuery.noConflict();
+  	
+	jQuery(document).ready(function(){
+		jQuery("#form").validate();
+	});
+  	
+  </script>
+  <%= javascript_include_tag 'javascripts/jquery.validate.js' %>
+  <%= javascript_include_tag 'javascripts/jquery.validate.min.js' %>
 </head>
 	<body>
 		<p class="notice"><%= notice %></p>

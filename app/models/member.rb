@@ -7,5 +7,5 @@ class Member < ActiveRecord::Base
   validates :email, :presence => true,
                     :uniqueness => true
 
-  scope :este_domingo, joins(:registrations).where("registrations.day" => DateTime.now.end_of_week) 
+  scope :este_domingo, joins(:registrations).where("registrations.day" => DateTime.now.end_of_week.at_midnight) 
 end

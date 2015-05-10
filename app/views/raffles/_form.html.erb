@@ -1,0 +1,79 @@
+<style type="text/css">
+.btn-radio {
+  width: 100%;
+}
+.img-radio {
+  opacity: 0.5;
+  margin-bottom: 5px;
+}
+
+.space-20 {
+    margin-top: 20px;
+}
+</style>
+<script type="text/javascript">
+$(function () {
+    $('.btn-radio').click(function(e) {
+
+      if( $(this).hasClass("active") ){
+      
+      $(this).removeClass('active')
+        .siblings('input').prop('checked',false)
+            .siblings('.img-radio').css('opacity','0.2');
+          }
+          else {
+      $(this).addClass('active')
+            .siblings('input').prop('checked',true)
+        .siblings('.img-radio').css('opacity','1');
+      }
+    });
+});
+</script>
+
+
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <%= form_tag @raffle, :controller => "raffles", :action => "create", :class=>"form-horizontal well", :id => 'form' do |f| %>
+            <div class="field">
+              <%= label_tag "Ingresa tu e-mail de contacto" %><br />
+              <%= text_field_tag "raffle[email]","", :class=>"form-control required", :required => true, :type => "email" %>
+            </div>
+            <div class="field">
+              <%= label_tag "Ingresa el número del comprobante de pago:" %><br />
+              <%= number_field_tag "raffle[receipt]","", :class=>"form-control required",:required => true, :type => "number" %>
+            </div>
+            <div class="row text-center">
+              <h2 class=" col-sm-12">Selecciona los números de la rifa </h2>
+              <label class=" col-sm-12"> puedes seleccionar solo por el monto depositado, de otra forma se anulará la inscripción.</label>
+          </div>
+            <div class="row">
+
+
+              <% @limit.times do |index| %>
+                 <% dog = @dogs[index % @dogs.size ] %>
+            
+                <div class="col-xs-2 text-center">
+                
+               
+                  <%= image_tag dog.photo1.url(:thumb), :class=>"img-responsive img-radio", :alt => dog.name %>
+                  <% if !@raffles[(index+1).to_i] %>
+                    <button type="button" class="btn btn-primary btn-radio "><%= index + 1%>. <%= dog.name %></button>
+                    <input type="checkbox" id="raffle[number]" name="raffle[number][<%= index +1%>]" class="hidden" value="<%= index +1%>">
+                  <% else %>
+                   <button type="button" class="btn btn-primary " disabled>Comprado</button>
+                  
+                    <% end %>
+                </div>
+              <% end %>
+              
+            </div>
+        
+             <div class="actions text-center">
+    <%= submit_tag '¡Participar!', :class =>  "btn btn-success"%>
+  </div>
+          <%end%>
+        </div>
+    </div>
+</div>

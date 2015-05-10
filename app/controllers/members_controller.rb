@@ -93,6 +93,8 @@ class MembersController < ApplicationController
 	def check
 		m = Member.where(:email => params[:email]).first
 		if m
+      m.car = params[:car]
+      m.save
       registration = Registration.where(:member_id => m.id, :day => DateTime.now.end_of_week.at_midnight)
       if registration.count == 0
   			Registration.create(:member_id => m.id, :day => DateTime.now.end_of_week.at_midnight)
@@ -102,6 +104,7 @@ class MembersController < ApplicationController
 		else
 			@member = Member.new
 			@member.email = params[:email]
+      @member.car = params[:car]
 			render new_member_path
 		end
 	end

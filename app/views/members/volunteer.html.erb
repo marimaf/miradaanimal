@@ -19,6 +19,7 @@
   }
 
 </style>
+
 <div id="fullscreen_bg" class="fullscreen_bg"/>
 
 <div class="col-md-6 col-md-offset-3 text-center wells">
@@ -32,9 +33,11 @@
 
   <div class="field col-md-8 col-md-offset-2 form-group required">
     <%= label_tag "(si ya tenemos tus datos no necesitarás ingresar nada más)" %><br />
-    <%= text_field_tag :email, "", :placeholder => "Ingresa tu e-mail", :value => params[:email], :type => "email", :class=> "form-control required" %><br/>
+    <%= text_field_tag :email, "", :placeholder => "Ingresa tu e-mail", :value => params[:email], :type => "email", :class=> "form-control required" %>
   </div>
-
+ <div class="field col-md-8 col-md-offset-2 form-group">
+    <%= check_box_tag :car%> <%= label_tag "Cuentas con un auto para este operativo" %>
+  </div>
  <div class="actions">
     <%= submit_tag 'Quiero ir al operativo este domingo ' + DateTime.now.end_of_week.strftime("%d / %m / %Y"), :class => "btn btn-primary" %>
   </div>
