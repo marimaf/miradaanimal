@@ -13,7 +13,13 @@ es:
       member: "Miembros"
       donation: "Donaciones"
       registration: "Registro"
+      raffle: "Rifas"
     attributes:
+        raffle:
+          email: "E-mail"
+          event_number: "Evento"
+          number: "Número"
+          receipt: "Comprobante"
         dog:
           name: "Nombre"
           gender: "Género"
