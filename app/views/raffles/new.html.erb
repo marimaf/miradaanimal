@@ -24,4 +24,10 @@
 	<div class="col-md-3">Mail: </div><div class="col-md-6"> refugioesperanzapd@gmail.com </div><div class="col-md-3"></div>
 </div>
 </div>
+<% if @notice %>
+	<div class="col-md-6 col-md-offset-3">
+
+		<font color="red">ATENCION: <%= @notice %></font>
+	</div>
+<% end %>
 <%= render 'form' %>
