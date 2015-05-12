@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150510012943) do
+ActiveRecord::Schema.define(:version => 20150512191025) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(:version => 20150510012943) do
   create_table "raffles", :force => true do |t|
     t.string   "email"
     t.integer  "number"
-    t.integer  "receipt"
+    t.string   "receipt"
     t.integer  "event_number"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
