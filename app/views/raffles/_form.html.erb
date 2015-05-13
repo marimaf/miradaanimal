@@ -41,7 +41,9 @@ $(function () {
               <%= text_field_tag "raffle[email]", @raffle.email, :class=>"form-control required", :required => true, :type => "email" %>
             </div>
             <div class="field">
-              <%= label_tag "Ingresa el número del comprobante de pago:" %><br />
+              <br/>
+              SI FUE TRANSFERENCIA: Ingresa el rut asociado a la cuenta de donde transferiste (lo necesitamos para validar la transferencia) <br/>
+              SI FUE DEPOSITO EFECTIVO: Ingresa el número del comprobante <br />
               <%= text_field_tag "raffle[receipt]",@raffle.receipt, :class=>"form-control required",:required => true%>
             </div>
             <div class="row text-center">
