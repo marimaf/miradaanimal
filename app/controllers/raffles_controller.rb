@@ -50,7 +50,7 @@ class RafflesController < ApplicationController
           @raffle.number = nil 
           @limit = 100
           @dogs = Dog.limit(@limit)
-          @notice = "ALGUIEN YA COMPRO UNO DE LOS NUMEROS QUE ESCOGISTE, SELECCIONA TUS NUMEROS NUEVAMENTE"
+          @notice = "NO SE PUDO REALIZAR LA COMPRA, ALGUIEN YA COMPRO UNO DE LOS NUMEROS QUE ESCOGISTE, SELECCIONA TUS NUMEROS NUEVAMENTE"
           render action: "new"
           return
         end
