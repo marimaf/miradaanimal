@@ -42,6 +42,7 @@ class MembersController < ApplicationController
   # POST /members.json
   def create
     @member = Member.new(params[:member])
+    @member.norm_rut
 
     respond_to do |format|
       if @member.save
@@ -50,7 +51,7 @@ class MembersController < ApplicationController
           Registration.create(:member_id => @member.id, :day => DateTime.now.end_of_week.at_midnight)
         end
         AdminMailer.thanks_volunteer(@member).deliver
-        format.html { redirect_to thank_you_path(:notice => "¡Gracias! Nos Vemos") }
+        format.html { redirect_to thank_you_path(:notice => "¡Gracias! Registro exitoso") }
         format.json { render json: @member, status: :created, location: @member }
       else
         format.html { render action: "new" }
@@ -63,7 +64,7 @@ class MembersController < ApplicationController
   # PUT /members/1.json
   def update
     @member = Member.find(params[:id])
-
+    @member.norm_rut
     respond_to do |format|
       if @member.update_attributes(params[:member])
         format.html { redirect_to @member, notice: 'Member was successfully updated.' }

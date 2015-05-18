@@ -6,7 +6,7 @@ Miradaanimal::Application.routes.draw do
 
 
   resources :members
-  resources :donations
+  #resources :donations
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -15,7 +15,9 @@ Miradaanimal::Application.routes.draw do
   match 'check' => 'members#check', :as => :check
   match 'thank_you' => 'members#thank_you', :as => :thank_you
   match 'rifa' => 'raffles#new', :as => :rifa
-  match 'donaciones' => 'donations#new', :as => :new_donation
+  match 'donaciones' => 'donations#new_donation'
+  match 'cdonaciones' => 'donations#create'
+  match 'thank_you_donation' => 'donations#thank_you_donation', :as => :thank_you_donation
   
   #match 'voluntarios' => 'registrations#volunteers', :as => :volunteers
 

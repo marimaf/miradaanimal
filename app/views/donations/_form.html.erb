@@ -35,7 +35,7 @@ $(function () {
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <%= form_tag @donation, :controller => "donation", :action => "create", :class=>"form-horizontal well", :id => 'form' do |f| %>
+          <%= form_tag("/cdonaciones", :method => :post, :class=>"form-horizontal well", :id => 'form') do |f| %>
             <div class="field">
               <%= label_tag "Ingresa tu e-mail" %><br />
               <%= text_field_tag "member[email]", '', :class=>"form-control required", :required => true, :type => "email" %>

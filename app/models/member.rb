@@ -15,7 +15,7 @@ class Member < ActiveRecord::Base
 	  	rut = rut[0..rut.length-2] + "-"+rut[rut.length-1]
 	  	rut = rut[0..rut.length-9] + "." + rut[rut.length-8..rut.length-6] + "." + rut[rut.length-5..rut.length] 
 	  	self.rut = rut
-	end
+	  end
   end
 
 end

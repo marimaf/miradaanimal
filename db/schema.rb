@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150518153448) do
+ActiveRecord::Schema.define(:version => 20150518184352) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(:version => 20150518153448) do
     t.datetime "updated_at",    :null => false
     t.date     "date_received"
     t.boolean  "verified"
+    t.string   "receipt"
+    t.string   "email"
   end
 
   create_table "members", :force => true do |t|

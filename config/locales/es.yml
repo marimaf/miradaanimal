@@ -52,8 +52,11 @@ es:
           health: "Problema de salud"
         donation:
           amount: "Monto"
+          email: "Email"
           verified: "Verificado"
+          receipt: "Comprobante o Rut"
           member: "Miembro"
           member_id: "Miembro"
+          date_received: "Fecha recepción"
           created_at: "Creado en"
           updated_at: "Actualizado"

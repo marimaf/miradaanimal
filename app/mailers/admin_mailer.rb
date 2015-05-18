@@ -12,4 +12,8 @@ class AdminMailer < ActionMailer::Base
     mail(to: email, subject: 'Ya estás participando en la rifa!')
   end
 
+  def thanks_donation(email)
+    mail(to: email, subject: 'Gracias por tu donación!')
+  end
+
 end
