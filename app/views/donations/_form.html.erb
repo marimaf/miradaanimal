@@ -1,0 +1,59 @@
+<style type="text/css">
+.btn-radio {
+  width: 100%;
+}
+.img-radio {
+  opacity: 0.3;
+  margin-bottom: 5px;
+}
+
+.space-20 {
+    margin-top: 20px;
+}
+</style>
+<script type="text/javascript">
+$(function () {
+    $('.btn-radio').click(function(e) {
+
+      if( $(this).hasClass("active") ){
+      
+      $(this).removeClass('active')
+        .siblings('input').prop('checked',false)
+            .siblings('.img-radio').css('opacity','0.3');
+          }
+          else {
+      $(this).addClass('active')
+            .siblings('input').prop('checked',true)
+        .siblings('.img-radio').css('opacity','1');
+      }
+    });
+});
+</script>
+
+
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <%= form_tag @donation, :controller => "donation", :action => "create", :class=>"form-horizontal well", :id => 'form' do |f| %>
+            <div class="field">
+              <%= label_tag "Ingresa tu e-mail" %><br />
+              <%= text_field_tag "member[email]", '', :class=>"form-control required", :required => true, :type => "email" %>
+            </div>
+            <div class="field">
+              <%= label_tag "Ingresa el rut asociado a la cuenta de donde se realizó la transferencia" %> <br />
+              <%= text_field_tag "member[rut]", '', :class=>"form-control required", :required => true %>
+            </div>
+            <div class="field">
+              <%= label_tag "Monto:" %><br />
+              <%= text_field_tag "donation[amount]", '', :class=>"form-control required", :required => true%>
+            </div>
+           
+        
+             <div class="actions text-center"><br/>
+    <%= submit_tag 'Ingresar donación', :class =>  "btn btn-success"%>
+  </div>
+          <%end%>
+        </div>
+    </div>
+</div>

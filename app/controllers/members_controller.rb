@@ -1,3 +1,4 @@
+#encoding: utf-8
 class MembersController < ApplicationController
   # GET /members
   # GET /members.json
@@ -49,7 +50,7 @@ class MembersController < ApplicationController
           Registration.create(:member_id => @member.id, :day => DateTime.now.end_of_week.at_midnight)
         end
         AdminMailer.thanks_volunteer(@member).deliver
-        format.html { redirect_to thank_you_path }
+        format.html { redirect_to thank_you_path(:notice => "¡Gracias! Nos Vemos") }
         format.json { render json: @member, status: :created, location: @member }
       else
         format.html { render action: "new" }
@@ -95,12 +96,16 @@ class MembersController < ApplicationController
 		if m
       m.car = params[:car]
       m.save
-      registration = Registration.where(:member_id => m.id, :day => DateTime.now.end_of_week.at_midnight)
-      if registration.count == 0
+      registration = Registration.where(:member_id => m.id, :day => DateTime.now.end_of_week.at_midnight).first
+      if registration.nil?
   			Registration.create(:member_id => m.id, :day => DateTime.now.end_of_week.at_midnight)
+        AdminMailer.thanks_volunteer(m).deliver
+        redirect_to thank_you_path(:notice => "¡Gracias! Registro exitoso")
+      else
+        redirect_to thank_you_path(:notice => "Ya estabas inscrito para este operativo")
       end
-      AdminMailer.thanks_volunteer(m).deliver
-			redirect_to thank_you_path
+      return
+			
 		else
 			@member = Member.new
 			@member.email = params[:email]
@@ -110,7 +115,7 @@ class MembersController < ApplicationController
 	end
 
 	def thank_you
-		@dog = Dog.first(:order => "RANDOM()")
+		@notice = params[:notice]
 	end
   
 end

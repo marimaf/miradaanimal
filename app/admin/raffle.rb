@@ -9,6 +9,9 @@ index do
     column :receipt
     column :number
     column :verified
+    column :miembro do |raffle|
+    	Member.find_by_rut(raffle.email) ? "Miembro" : "---"
+    end
     actions
   end
 

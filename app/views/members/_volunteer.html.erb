@@ -1,7 +1,7 @@
-<%= form_for(@member) do |f| %>
+<%= form_for(@member, :html => {:id => 'form'} ) do |f| %>
   <% if @member.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@member.errors.count, "error") %> prohibited this member from being saved:</h2>
+      <h2>Tuvimos un error:</h2>
 
       <ul>
       <% @member.errors.full_messages.each do |msg| %>
@@ -12,16 +12,16 @@
   <% end %>
 <div class="col-md-8 col-md-offset-2">
   <div class="field">
-    <%= f.label :nombre %><br />
-    <%= f.text_field :name,  :required=>"true",  :class=>"form-control" %>
+    <%= f.label :nombre %><font color="red">*</font><br />
+    <%= f.text_field :name,  :required=>"true",  :class=>"form-control required" %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email,  :required=>"true",  :class=>"form-control" %>
+    <%= f.label :email %><font color="red">*</font><br />
+    <%= f.text_field :email,  :required=>"true",  :class=>"form-control required", :type => "email"  %>
   </div>
   <div class="field">
-    <%= f.label :rut %><br />
-    <%= f.text_field :rut,  :required=>"true",  :class=>"form-control" %>
+    <%= f.label :rut %><font color="red">*</font><br />
+    <%= f.text_field :rut,  :required=>"true",  :class=>"form-control required" %>
   </div>
   <div class="field">
     
@@ -37,6 +37,20 @@
   <div class="field">
     <%= f.label :occupation %><br />
     <%= f.text_field :occupation,  :class=>"form-control" %>
+  </div>
+  <br/>
+  IMPORTANTE EN CASO DE EMERGENCIA CONTACTAR A:
+  <div class="field">
+    <%= f.label :emergency_contact_name %><font color="red">*</font><br />
+    <%= f.text_field :emergency_contact_name,  :class=>"form-control required" %>
+  </div>
+  <div class="field">
+    <%= f.label :emergency_contact_phone %><font color="red">*</font><br />
+    <%= f.text_field :emergency_contact_phone,  :class=>"form-control required" %>
+  </div>
+  <div class="field">
+    <%= f.label "Tienes algún problema de salud o alergia:" %><br />
+    <%= f.text_field :health,  :class=>"form-control" %>
   </div>
   <!--div class="field">
     <%= f.label :frequent_donor %><br />

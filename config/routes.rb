@@ -15,6 +15,7 @@ Miradaanimal::Application.routes.draw do
   match 'check' => 'members#check', :as => :check
   match 'thank_you' => 'members#thank_you', :as => :thank_you
   match 'rifa' => 'raffles#new', :as => :rifa
+  match 'donaciones' => 'donations#new', :as => :new_donation
   
   #match 'voluntarios' => 'registrations#volunteers', :as => :volunteers
 

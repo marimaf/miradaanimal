@@ -47,8 +47,12 @@ es:
           created_at: "Creado en"
           updated_at: "Actualizado"
           volunteer: "Voluntario"
+          emergency_contact_name: "Nombre contacto emergencia"
+          emergency_contact_phone: "Teléfono emergencia"
+          health: "Problema de salud"
         donation:
           amount: "Monto"
+          verified: "Verificado"
           member: "Miembro"
           member_id: "Miembro"
           created_at: "Creado en"
