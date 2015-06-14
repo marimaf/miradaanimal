@@ -12,6 +12,8 @@ Miradaanimal::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   match 'operativo' => 'members#volunteer', :as => :volunteer
+  match 'miembro' => 'members#new_member', :as => :member
+  match 'create_member' => 'members#create_member', :as => :member
   match 'check' => 'members#check', :as => :check
   match 'thank_you' => 'members#thank_you', :as => :thank_you
   match 'rifa' => 'raffles#new', :as => :rifa

@@ -33,6 +33,15 @@ class MembersController < ApplicationController
     end
   end
 
+  def new_member
+    @member = Member.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @member }
+    end
+  end
+
   # GET /members/1/edit
   def edit
     @member = Member.find(params[:id])
@@ -56,6 +65,25 @@ class MembersController < ApplicationController
       else
         format.html { render action: "new" }
         format.json { render json: @member.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+   # POST /members
+  # POST /members.json
+  def create_member
+    @member = Member.new(params[:member])
+    puts "bla " + @member.name.to_s
+    @member.norm_rut
+    if @member.donor_amount != ""
+      @member.frequent_donor = true
+    end
+
+    respond_to do |format|
+      if @member.save
+        format.html { redirect_to thank_you_path(:notice => "¡Gracias! Registro exitoso") }
+      else
+        format.html { render action: "new_member" }
       end
     end
   end

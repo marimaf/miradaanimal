@@ -1,5 +1,5 @@
 class Member < ActiveRecord::Base
-  attr_accessible :car, :email, :frequent_donor, :name, :occupation, :phone, :rut, :volunteer, :emergency_contact_name, :emergency_contact_phone, :health
+  attr_accessible :car, :email, :frequent_donor, :name, :occupation, :phone, :rut, :volunteer, :emergency_contact_name, :emergency_contact_phone, :health, :donor_amount
 
   has_many :registrations
   has_many :donations

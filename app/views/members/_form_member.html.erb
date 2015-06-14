@@ -1,0 +1,47 @@
+<%= form_for(@member, url: {action: "create_member"}, :html => {:id => 'form'} ) do |f| %>
+  <% if @member.errors.any? %>
+    <div id="error_explanation">
+      <h2>Tuvimos un error:</h2>
+
+      <ul>
+      <% @member.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="col-md-8 col-md-offset-2">
+  <div class="field">
+    <%= f.label :nombre %><font color="red">*</font><br />
+    <%= f.text_field :name,  :required=>"true",  :class=>"form-control required" %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><font color="red">*</font><br />
+    <%= f.text_field :email,  :required=>"true",  :class=>"form-control required", :type => "email"  %>
+  </div>
+  <div class="field">
+    <%= f.label :rut %><font color="red">*</font><br />
+    <%= f.text_field :rut,  :required=>"true",  :class=>"form-control required" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :telefono %><br />
+    <%= f.text_field :phone,  :class=>"form-control" %>
+  </div>
+  <br/>
+   <div class="field">
+    <%= f.label :occupation %><br />
+    <%= f.text_field :occupation,  :class=>"form-control" %>
+  </div>
+  <br/>
+  <div class="field">
+    <%= f.label "Si deseas donar un monto mensual ingresalo aquí por favor, no hay mínimos ni máximos" %><br/>
+    <%= f.text_field :donor_amount,  :class=>"form-control"  %>
+  </div>
+  <br/>
+  <div class="actions text-center">
+    <%= f.submit 'Enviar',  :class=>"btn btn-primary " %><br/><br/>
+  </div>
+  </div>
+<% end %>
+
