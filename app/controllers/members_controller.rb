@@ -146,5 +146,24 @@ class MembersController < ApplicationController
 	def thank_you
 		@notice = params[:notice]
 	end
+
+  def padrinos
+    @dogs = Dog.where(:member_id => nil, :adopted => [false, nil])
+  end
+
+  def create_padrino
+    dog = Dog.find(params[:dog])
+    mem = Member.find_by_email(params[:member][:email])
+    if !mem.nil?
+      dog.member_id = mem.id
+      dog.save
+    else
+      redirect_to padrinos_path(:notice => "Tu mail no está registrado, inscríbete como miembro primero")
+      return
+    end
+
+    redirect_to thank_you_path(:notice => "¡#{dog.name} estará feliz de saber que tiene un nuevo padrino!")
+    return
+  end
   
 end

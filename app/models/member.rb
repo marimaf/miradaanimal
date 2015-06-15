@@ -3,11 +3,14 @@ class Member < ActiveRecord::Base
 
   has_many :registrations
   has_many :donations
+  has_many :dogs
 
   validates :email, :presence => true,
                     :uniqueness => true
 
-  scope :este_domingo, joins(:registrations).where("registrations.day" => DateTime.now.end_of_week.at_midnight) 
+  scope :voluntarios_domingo, joins(:registrations).where("registrations.day" => DateTime.now.end_of_week.at_midnight) 
+  scope :donante_frecuente, where(:frequent_donor => true)
+  scope :padrinos, joins(:dogs).where("dogs.member_id IS NOT NULL" )
 
   def norm_rut
   	if !self.rut.nil?

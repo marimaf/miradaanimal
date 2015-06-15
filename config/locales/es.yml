@@ -33,6 +33,7 @@ es:
           created_at: "Creado en"
           updated_at: "Actualizado"
           comments: "Comentarios"
+          member_id: "Padrino"
           photo1: "Foto 1"
           photo2: "Foto 2"
           photo3: "Foto 3"

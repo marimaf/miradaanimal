@@ -12,6 +12,8 @@ Miradaanimal::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   match 'operativo' => 'members#volunteer', :as => :volunteer
+  match 'padrinos' => 'members#padrinos', :as => :padrinos
+  post 'create_padrino' => 'members#create_padrino', :as => :create_padrino
   match 'miembro' => 'members#new_member', :as => :member
   match 'create_member' => 'members#create_member', :as => :member
   match 'check' => 'members#check', :as => :check

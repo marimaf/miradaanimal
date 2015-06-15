@@ -13,8 +13,12 @@ index do
     column :size
     column :date_of_birth
     column :arrival_date
+    column :member_id do |dog|
+        if dog.member
+            dog.member.name
+        end
+    end
     column :photo1 do |dog|
-
         if dog.photo1.exists?
     	   image_tag dog.photo1.url(:thumb)
         end
@@ -28,6 +32,7 @@ form :html => { :enctype => "multipart/form-data" } do |f|
     f.input :name
     f.input :sterilized
     f.input :adopted
+    f.input :member_id
     f.input :gender, collection: ["Macho", "Hembra"]
     f.input :size, collection: ["Pequeño", "Mediano", "Grande"]
     f.input :date_of_birth, :as => :datepicker

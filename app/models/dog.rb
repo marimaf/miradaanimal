@@ -12,4 +12,6 @@ class Dog < ActiveRecord::Base
 
   scope :adoptados, where("adopted" => true)
   scope :por_adoptar, where("adopted" => false)
+
+  belongs_to :member
 end
