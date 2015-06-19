@@ -110,4 +110,16 @@ class RafflesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def toggle_verified
+
+    raffle = Raffle.find(params[:id])
+    raffle.verified = !raffle.verified
+    raffle.save
+
+
+    return redirect_to admin_raffles_path()  
+      
+  end
+
 end

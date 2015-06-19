@@ -23,6 +23,7 @@ Miradaanimal::Application.routes.draw do
   match 'cdonaciones' => 'donations#create'
   match 'thank_you_donation' => 'donations#thank_you_donation', :as => :thank_you_donation
   
+  match 'toggle_verified' => 'raffles#toggle_verified', :as => :toggle_verified
   #match 'voluntarios' => 'registrations#volunteers', :as => :volunteers
 
   # The priority is based upon order of creation:
