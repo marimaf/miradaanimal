@@ -8,7 +8,8 @@ class AdminMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'Estas inscrito para este domingo!')
   end
 
-   def thanks_raffle(email)
+   def thanks_raffle(email, numbers)
+    @numbers = numbers
     mail(to: email, subject: 'Ya estás participando en la rifa!')
   end
 

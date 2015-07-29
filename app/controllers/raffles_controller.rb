@@ -24,9 +24,9 @@ class RafflesController < ApplicationController
   # GET /raffles/new
   # GET /raffles/new.json
   def new
-    @raffles = Hash[ Raffle.where(:event_number => 2).map{|c| [c.number, true] }]
+    @raffles = Hash[ Raffle.where(:event_number => 3).map{|c| [c.number, true] }]
     @raffle = Raffle.new
-    @limit = 300
+    @limit = 400
     @dogs = Dog.limit(@limit)
 
     respond_to do |format|
@@ -40,27 +40,29 @@ class RafflesController < ApplicationController
   # POST /raffles
   # POST /raffles.json
   def create
-    event_number = 2
+    event_number = 3
     numbers = params[:raffle][:number]
     if !numbers.nil? && numbers.count != 0
-      numbers.each_with_index do |number, index|
+      numbers.each_with_index do |number, index| #check that all numbers are available
         if !Raffle.where(:number => number, :event_number => event_number).empty?
           @raffles = Hash[ Raffle.where(:event_number => event_number).map{|c| [c.number, true] }]
           @raffle = Raffle.new(params[:raffle])
           @raffle.number = nil 
-          @limit = 300
+          @limit = 400
           @dogs = Dog.limit(@limit)
           @notice = "NO SE PUDO REALIZAR LA COMPRA, ALGUIEN YA COMPRO UNO DE LOS NUMEROS QUE ESCOGISTE, SELECCIONA TUS NUMEROS NUEVAMENTE"
           render action: "new"
           return
         end
       end
+      email_numbers = []
       numbers.each_with_index do |number, index|
       #if index.odd?
         
           @raffle = Raffle.new(params[:raffle])
           @raffle.event_number = event_number
           @raffle.number = number[0].to_i
+          email_numbers << number[0].to_i
           @raffle.save
         
          
@@ -68,12 +70,13 @@ class RafflesController < ApplicationController
       #end
       end
 
-      AdminMailer.thanks_raffle(@raffle.email).deliver
+
+      AdminMailer.thanks_raffle(@raffle.email, email_numbers).deliver
       redirect_to @raffle, notice: 'Raffle was successfully created.'
     else
       @raffles = Hash[ Raffle.where(:event_number => event_number).map{|c| [c.number, true] }]
       @raffle = Raffle.new
-      @limit = 300
+      @limit = 400
       @dogs = Dog.limit(@limit)
      render action: "new" 
     end

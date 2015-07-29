@@ -932,9 +932,11 @@ a:hover{color:#30495c !important}.wrapper .logo div{color:#41637e}.wrapper .logo
                           <tbody><tr>
                             <td class="padded" style="padding: 0;vertical-align: top;padding-left: 32px;padding-right: 32px;word-break: break-word;word-wrap: break-word">
                               
-                              <h1 style="Margin-top: 0;color: #565656;font-weight: 700;font-size: 36px;Margin-bottom: 18px;font-family: sans-serif;line-height: 42px">¡Gracias por participar en la rifa!</h1><p style="Margin-top: 0;color: #565656;font-family: Georgia,serif;font-size: 16px;line-height: 25px;Margin-bottom: 24px"><p>A través de nuestro facebook publicaremos a los ganadores, también los contactaremos por mail.</p>
+                              <h1 style="Margin-top: 0;color: #565656;font-weight: 700;font-size: 36px;Margin-bottom: 18px;font-family: sans-serif;line-height: 42px">¡Gracias por participar en la rifa!</h1><p style="Margin-top: 0;color: #565656;font-family: Georgia,serif;font-size: 16px;line-height: 25px;Margin-bottom: 24px">
+                              <p>Tus números son: <%= @numbers.join(", ").to_s %></p>
+                              <p>A través de nuestro facebook publicaremos a los ganadores, también los contactaremos por mail.</p>
                                 <p>
-                                Los fondos recaudados con la rifa nos ayudará a comprar el alimento necesario para alimentar a los perritos del refugio por una semana</p>
+                                Los fondos recaudados con la rifa nos ayudará a comprar alimento para los perritos del refugio.</p>
                                 <p>
                                 ¡Gracias nuevamente!</p>
                               <p style="Margin-top: 0;color: #565656;font-family: Georgia,serif;font-size: 16px;line-height: 25px;Margin-bottom: 24px;text-align:right;"> - Corporación Mirada Animal Chile </p>
