@@ -1,0 +1,3 @@
+{"dogs":[
+ <%= raw @dogs.map{|dog| '{"name":"' +"#{dog.name}" +'","gender":"' + "#{dog.gender}"+'","size":"' + "#{dog.size}"+'","photo":"' + "#{dog.photo1.exists? ? dog.photo1.url(:original).split("?")[0].split("%")[0] : ""}"+'","id":"' + "#{dog.id}" + '"}' }.join(",") %>
+]}

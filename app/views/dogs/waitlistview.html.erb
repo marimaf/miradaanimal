@@ -1,0 +1,46 @@
+<script type="text/javascript">jQuery(function($){
+ $("#prueba").html("HOLA MUNDO!");
+}); 
+
+$.getJSON( "http://localhost:3000/waitlist.json", function( data ) {
+	console.log(data["dogs"]);
+  var items = [];
+  $.each( data["dogs"], function( key, val ) {
+  	console.log("key: " + key);
+  	items.push( 
+  		"<div class='vc_col-sm-2 wpb_column vc_column_container'>"+
+			"<div class='wpb_wrapper'>"+
+				"<div class='wpb_single_image wpb_content_element vc_custom_1438106996103 vc_align_left'>"+
+					"<div>"+
+						"<div class='wpb_wrapper'>"+
+							"<img class='vc_box_border_grey ' src='" +val["photo"] + "' width='200' height='200' alt='"+val["name"]+"' />"+
+						"</div>"+ 
+					"</div>"+
+				"</div> "+
+			"</div> "+
+		"</div> "+
+	"<div class='vc_col-sm-2 wpb_column vc_column_container'>"+
+		"<div class='wpb_wrapper'>"+
+			"<div class='wpb_text_column wpb_content_element  vc_custom_1438108098206'>"+
+				"<div class='wpb_wrapper'>"+
+			  		"<p id='" + key + "' style='text-align: left;'> Nombre: " + val["name"] + "</p>" +
+			  		"<p id='" + key + "' style='text-align: left;'> Sexo: " + val["gender"] + "</p>" +
+			  		"<p id='" + key + "' style='text-align: left;'> Tamaño: " + val["size"] + "</p>" +
+			  	"</div> "+
+	"</div> <a href='' target='_self' class='qbutton normal_button small qbutton_with_icon' style='' ><i class='fa fa-heart' style='color: #dd3333;'></i><span>adopta</span></a>"+
+		"</div> "+
+	"</div> ");
+  });
+ 
+  $( "<div/>", {
+    "class": "my-new-list",
+    html: items.join( "" )
+  }).appendTo( "body" );
+});
+
+</script>
+
+
+<div id="prueba">
+chao
+</div>

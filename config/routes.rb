@@ -22,6 +22,8 @@ Miradaanimal::Application.routes.draw do
   match 'donaciones' => 'donations#new_donation'
   match 'cdonaciones' => 'donations#create'
   match 'thank_you_donation' => 'donations#thank_you_donation', :as => :thank_you_donation
+  match 'waitlist' => 'dogs#waitlist'
+  match 'waitlistview' => 'dogs#waitlistview'
   
   match 'toggle_verified' => 'raffles#toggle_verified', :as => :toggle_verified
   #match 'voluntarios' => 'registrations#volunteers', :as => :volunteers
